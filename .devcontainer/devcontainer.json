@@ -1,22 +1,15 @@
 {
   "name": "any-oss-dev",
-  "build": {
-    "dockerfile": "../Dockerfile",
-    "target": "development",
-    "context": ".."
-  },
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/node:1": { "version": "18" }
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
         "github.vscode-github-actions",
-        "esbenp.prettier-vscode",
-        "ms-azuretools.vscode-docker"
+        "esbenp.prettier-vscode"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash",
@@ -24,10 +17,12 @@
       }
     }
   },
-  "postCreateCommand": "npm ci && git config --global --add safe.directory /workspace",
+  "postCreateCommand": "npm ci",
   "postStartCommand": "npm start",
   "forwardPorts": [3000],
   "remoteUser": "node",
-  "containerEnv": { "NODE_ENV": "development" },
+  "containerEnv": {
+    "NODE_ENV": "development"
+  },
   "workspaceFolder": "/workspace"
 }
