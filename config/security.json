@@ -1,0 +1,12 @@
+{
+  "audit_path": "var/policy-gateway/audit.jsonl",
+  "manifest_path": "var/policy-gateway/manifest.json",
+  "backup_dir": "var/policy-gateway/backups",
+  "audit_max_bytes": 10485760,
+  "security_headers": {
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
+    "referrer-policy": "no-referrer",
+    "cache-control": "no-store"
+  }
+}

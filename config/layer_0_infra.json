@@ -1,0 +1,5 @@
+{
+  "fd_soft_limit": 4096,
+  "oom_score_adj": null,
+  "memory_floor_kb": 950000
+}

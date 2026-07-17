@@ -1,0 +1,8 @@
+{
+  "database_path": "var/policy-gateway/gateway.db",
+  "query_timeout_ms": 150,
+  "backup_keep": 3,
+  "flush_interval_s": 25,
+  "integrity_interval_s": 60,
+  "backup_interval_s": 900
+}

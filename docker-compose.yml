@@ -1,0 +1,29 @@
+services:
+  policy-gateway:
+    build: .
+    image: policy-gateway:latest
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env.example
+    environment:
+      PGW_DATA_DIR: /app/var/policy-gateway
+      PGW_UPSTREAM_URL: http://llama:8080/completion
+    volumes:
+      - policy_gateway_data:/app/var/policy-gateway
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=2)"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  llama:
+    image: ghcr.io/ggerganov/llama.cpp:server
+    profiles: ["llama"]
+    ports:
+      - "8080:8080"
+
+volumes:
+  policy_gateway_data:

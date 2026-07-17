@@ -1,0 +1,7 @@
+{
+  "host": "0.0.0.0",
+  "port": 8000,
+  "rate_limit_rpm": 120,
+  "max_body_bytes": 1048576,
+  "metrics_scrape_gate_ms": 200
+}
