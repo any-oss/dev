@@ -1,6 +1,7 @@
-```
-# Dependencies
+# Dependencies and virtualenvs
 node_modules/
+venv/
+.venv/
 
 # Environment
 .env
@@ -17,16 +18,13 @@ node_modules/
 
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
 .Python
-venv/
-.venv/
-.env
-.env.*
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
 .coverage
 htmlcov/
 
@@ -34,4 +32,12 @@ htmlcov/
 dist/
 build/
 target/
-```
+*.egg-info/
+
+# Runtime state
+var/
+*.db
+*.db-wal
+*.db-shm
+
+!.env.example

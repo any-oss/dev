@@ -1,0 +1,11 @@
+{
+  "ema_alpha": 0.2,
+  "ring_size": 4096,
+  "qps_high": 320,
+  "qps_low": 280,
+  "p95_latency_ms": 1850,
+  "error_rate_high": 0.045,
+  "cooldown_ms": 4200,
+  "sprt_accept_h0": -1.2,
+  "min_promote_samples": 64
+}

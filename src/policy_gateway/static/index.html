@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Policy Gateway Console</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Layered Runtime Console</p>
+        <h1>Policy Gateway</h1>
+        <p>Monitor EMA/SPRT policy state, send test telemetry, and verify dispatch routing from the bundled full-stack UI.</p>
+      </section>
+
+      <section class="grid" aria-live="polite">
+        <article class="card"><span>State</span><strong id="state">loading</strong></article>
+        <article class="card"><span>p95 latency</span><strong id="p95">--</strong></article>
+        <article class="card"><span>Error rate</span><strong id="error-rate">--</strong></article>
+        <article class="card"><span>QPS</span><strong id="qps">--</strong></article>
+      </section>
+
+      <section class="panel">
+        <h2>Ingest sample</h2>
+        <form id="ingest-form">
+          <label>Latency ms <input id="latency" type="number" min="0" value="42" /></label>
+          <label>Status code <input id="status-code" type="number" min="100" max="599" value="200" /></label>
+          <button type="submit">Queue telemetry</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Dispatch probe</h2>
+        <form id="dispatch-form">
+          <label>Prompt <input id="prompt" value="hello" /></label>
+          <label>Memory KB <input id="mem-kb" type="number" min="0" value="2000000" /></label>
+          <button type="submit">Dispatch</button>
+        </form>
+        <pre id="output">Ready.</pre>
+      </section>
+    </main>
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>
