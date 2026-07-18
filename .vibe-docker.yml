@@ -1,0 +1,5 @@
+image: "anydockerhub/dev"
+tag: "tagname"
+dockerfile: "Dockerfile"
+context: "python"
+registry: "docker.io"
