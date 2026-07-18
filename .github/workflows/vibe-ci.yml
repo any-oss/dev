@@ -1,0 +1,26 @@
+name: 🧬 Vibe CI (essential)
+
+on: [push, pull_request]
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          if [ -f scripts/quick-test.sh ]; then bash scripts/quick-test.sh; fi
+          if command -v shellcheck >/dev/null; then shellcheck scripts/*.sh || true; fi
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: .
+          format: sarif
+          output: trivy-results.sarif
+      - uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: trivy-results.sarif
